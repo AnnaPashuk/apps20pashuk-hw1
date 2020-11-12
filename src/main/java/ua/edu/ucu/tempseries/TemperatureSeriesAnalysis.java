@@ -40,7 +40,7 @@ public class TemperatureSeriesAnalysis {
          */
         double standardDeviation = 0.0;
         double avg = average();
-        for(double num:temperatureSeries) {
+        for (double num:temperatureSeries) {
             standardDeviation += (num - avg)*(num - avg);
         }
         return Math.sqrt(standardDeviation/temperatureSeries.length);
@@ -97,7 +97,7 @@ public class TemperatureSeriesAnalysis {
                     maxTemp = maxI;
                 }
 
-                i ++ ;
+                i++;
 
             }
             return maxTemp;
@@ -133,8 +133,8 @@ public class TemperatureSeriesAnalysis {
             double closest = temperatureSeries[0];
             for (int i = 1; i < temperatureSeries.length; i++) {
                 double closestI = Math.abs(temperatureSeries[i] - tempValue);
-                if (closestI < closestDist || closestI == closestDist &
-                        temperatureSeries[i] > closest) {
+                if (closestI < closestDist || closestI == closestDist
+                        & temperatureSeries[i] > closest) {
                     closestDist = closestI;
                     closest = temperatureSeries[i];
                 }
@@ -233,7 +233,9 @@ public class TemperatureSeriesAnalysis {
         if (temperatureSeries.length == 0) {
             throw new IllegalArgumentException("Empty array");
         } else {
-            TempSummaryStatistics temp = new TempSummaryStatistics(this.average(), this.deviation(), this.min(), this.max());
+            TempSummaryStatistics temp = new TempSummaryStatistics(
+                    this.average(), this.deviation(),
+                    this.min(), this.max());
             return temp;
         }
     }
@@ -247,8 +249,8 @@ public class TemperatureSeriesAnalysis {
          * @param newLength This is the parameter of new length of array.
          * @param newTemp  This is the parameter to represent the new array
          *                 of size newLength.
-         * @param counter This is the parameter to represent the current position
-         *                in new array.
+         * @param counter This is the parameter to represent the current
+         *                position in new array.
          * @return int This returns the total number of temperature values.
          */
         int newLength = temperatureSeries.length;
